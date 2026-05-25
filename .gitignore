@@ -1,0 +1,11 @@
+# Token file — never commit this
+.thirdspace_token.json
+*.token.json
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.env

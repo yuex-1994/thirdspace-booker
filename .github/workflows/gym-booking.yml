@@ -1,0 +1,46 @@
+name: Third Space Auto-Booker
+
+# All times in UTC. London is BST (UTC+1) in summer, GMT (UTC+0) in winter.
+# Current schedule is set for BST. Adjust by +1 hour in winter (late Oct–late Mar).
+
+on:
+  schedule:
+    # Monday 07:00 BST → Saturday 06:00 UTC
+    - cron: "0 6 * * 6"
+    # Tuesday 06:10 BST → Sunday 05:10 UTC
+    - cron: "10 5 * * 0"
+    # Wednesday 06:45 BST → Monday 05:45 UTC
+    - cron: "45 5 * * 1"
+    # Thursday 06:20 BST → Tuesday 05:20 UTC
+    - cron: "20 5 * * 2"
+    # Friday 06:00 BST → Wednesday 05:00 UTC
+    - cron: "0 5 * * 3"
+    # Saturday 08:30 BST → Thursday 07:30 UTC
+    - cron: "30 7 * * 4"
+    # Sunday 08:15 BST → Friday 07:15 UTC
+    - cron: "15 7 * * 5"
+
+  # Allow manual trigger from GitHub Actions UI (useful for testing)
+  workflow_dispatch:
+
+jobs:
+  book:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run booker
+        env:
+          THIRDSPACE_TOKEN: ${{ secrets.THIRDSPACE_TOKEN }}
+          THIRDSPACE_EXPIRES_AT: ${{ secrets.THIRDSPACE_EXPIRES_AT }}
+        run: python book.py
