@@ -31,7 +31,7 @@ SCHEDULE = {
     2: ("Hot Vinyasa",       "06:45", CLUBS["wood_wharf"]),    # Wednesday
     3: ("Speed Fiends",      "06:20", CLUBS["canary_wharf"]),  # Thursday
     4: ("Yard WOD",          "06:00", CLUBS["canary_wharf"]),  # Friday
-    5: ("Boxing",            "08:30", CLUBS["canary_wharf"]),  # Saturday
+        5: ("Dynamic Reformer",  "08:10", CLUBS["wood_wharf"]),    # Saturday
     6: ("Hyrox",             "08:15", CLUBS["canary_wharf"]),  # Sunday
 }
 
