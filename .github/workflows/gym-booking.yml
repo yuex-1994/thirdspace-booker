@@ -15,8 +15,8 @@ on:
     - cron: "20 5 * * 2"
     # Friday 06:00 BST → Wednesday 05:00 UTC
     - cron: "0 5 * * 3"
-    # Saturday 08:30 BST → Thursday 07:30 UTC
-    - cron: "30 7 * * 4"
+        # Saturday 08:10 BST → Thursday 07:10 UTC
+        - cron: "10 7 * * 4"
     # Sunday 08:15 BST → Friday 07:15 UTC
     - cron: "15 7 * * 5"
 
