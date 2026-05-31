@@ -26,7 +26,7 @@ CLUBS = {
 # weekday() → (search string, HH:MM, club_id)
 # Script runs exactly 48h before class, so target = today + 2 days
 SCHEDULE = {
-    0: ("Skills and Drills", "07:00", CLUBS["wood_wharf"]),    # Monday
+    0: ("swim - skills & drills", "07:00", CLUBS["wood_wharf"]),    # Monday
     1: ("Dynamic Reformer",  "06:10", CLUBS["wood_wharf"]),    # Tuesday
     2: ("Hot Vinyasa",       "06:45", CLUBS["wood_wharf"]),    # Wednesday
     3: ("Speed Fiends",      "06:20", CLUBS["canary_wharf"]),  # Thursday
