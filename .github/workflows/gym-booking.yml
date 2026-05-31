@@ -22,6 +22,11 @@ on:
 
   # Allow manual trigger from GitHub Actions UI (useful for testing)
   workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Target date (YYYY-MM-DD). Overrides 48h default."
+        required: false
+        default: ""
 
 jobs:
   book:
@@ -43,4 +48,5 @@ jobs:
         env:
           THIRDSPACE_TOKEN: ${{ secrets.THIRDSPACE_TOKEN }}
           THIRDSPACE_EXPIRES_AT: ${{ secrets.THIRDSPACE_EXPIRES_AT }}
+          TARGET_DATE: ${{ github.event.inputs.target_date }}
         run: python book.py
