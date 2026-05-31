@@ -178,7 +178,10 @@ def book_class(token, class_id):
 
 def main():
     now     = datetime.now(LONDON_TZ)
-    target  = (now + timedelta(days=2)).date()
+    if os.environ.get("TARGET_DATE"):
+        target = datetime.strptime(os.environ["TARGET_DATE"], "%Y-%m-%d").date()
+    else:
+        target  = (now + timedelta(days=2)).date()
     weekday = target.weekday()
 
     print(f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] Running booker for {target} ({target.strftime('%A')})")
